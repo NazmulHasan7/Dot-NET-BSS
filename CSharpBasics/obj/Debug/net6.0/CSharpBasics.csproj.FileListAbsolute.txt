@@ -1,0 +1,15 @@
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\bin\Debug\net6.0\CSharpBasics.exe
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\bin\Debug\net6.0\CSharpBasics.deps.json
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\bin\Debug\net6.0\CSharpBasics.runtimeconfig.json
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\bin\Debug\net6.0\CSharpBasics.dll
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\bin\Debug\net6.0\CSharpBasics.pdb
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\CSharpBasics.csproj.AssemblyReference.cache
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\CSharpBasics.GeneratedMSBuildEditorConfig.editorconfig
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\CSharpBasics.AssemblyInfoInputs.cache
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\CSharpBasics.AssemblyInfo.cs
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\CSharpBasics.csproj.CoreCompileInputs.cache
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\CSharpBasics.dll
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\refint\CSharpBasics.dll
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\CSharpBasics.pdb
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\CSharpBasics.genruntimeconfig.cache
+G:\DOT NET\Dot-NET-BSS\CSharpBasics\obj\Debug\net6.0\ref\CSharpBasics.dll
