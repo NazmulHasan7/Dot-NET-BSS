@@ -2,6 +2,7 @@
 using CSharpBasics.Math;
 using System;
 using System.Runtime.Serialization.Formatters;
+using System.Text;
 
 namespace CSharpBasics
 {
@@ -34,8 +35,8 @@ namespace CSharpBasics
 
             // Type Conversion - Type casting
             Console.WriteLine("\nType Conversion -----------------");
-            int i = 300; // 32bit int - binary - 100101100 = 300
-            byte b = (byte)i; // 8 bit byte - can store 00101100 = 44
+            int varI = 300; // 32bit int - binary - 100101100 = 300
+            byte b = (byte)varI; // 8 bit byte - can store 00101100 = 44
             Console.WriteLine(b);
 
             try
@@ -181,10 +182,10 @@ namespace CSharpBasics
                 Console.Write(number+ " ");
             }
             Console.WriteLine();
-            var array2 = new int[4];
+            var array3 = new int[4];
             // (sourceArray, destinationArray, numberOfElementToBeCopied)
-            Array.Copy(singleDimensionalArray, array2, 4);
-            foreach(var number in array2)
+            Array.Copy(singleDimensionalArray, array3, 4);
+            foreach(var number in array3)
             {
                 Console.Write(number+ " ");
             }
@@ -229,6 +230,108 @@ namespace CSharpBasics
             list.Clear();
             Console.WriteLine();
             Console.WriteLine(list.Count);
+
+            // DateTime
+            Console.WriteLine("\nTime Component --------------------");
+            Console.WriteLine("Current Time: " +DateTime.Now);
+            Console.WriteLine("Today: " +DateTime.Today);
+            var now = DateTime.Now;
+            var tomorrow = now.AddDays(1);
+            var yesterday = now.AddDays(-1);
+            Console.WriteLine("Tomorrow: " +tomorrow.ToString("D"));
+            Console.WriteLine("Yesterday: " +yesterday);
+
+            // TimeSpan
+            var timeSpan = new TimeSpan(1, 2, 3);
+            Console.WriteLine("Time Span: " +timeSpan.ToString());
+            var timeSpan2 = TimeSpan.FromHours(2);
+            Console.WriteLine("Time Span2: " + timeSpan2.ToString());
+            
+            var start = DateTime.Now;
+            var end = DateTime.Now.AddMinutes(10);
+            var duration = end - start;
+            Console.WriteLine("Duration: " +duration);
+            Console.WriteLine("Minutes: " +timeSpan.Minutes);
+            Console.WriteLine("Total Minutes: " +timeSpan.TotalMinutes);
+            Console.WriteLine("Adding 10 minutes: " + timeSpan.Add(TimeSpan.FromMinutes(10)));
+            Console.WriteLine("Subtracting 5 minutes: " +timeSpan.Subtract(TimeSpan.FromMinutes(10)));
+
+            // Strings
+            Console.WriteLine("\nStrings -------------------------");
+            var fullName = "Nazmul Hasan";
+            Console.WriteLine("Full Name: " +fullName);
+            Console.WriteLine("In lower case: " +fullName.ToLower());
+            Console.WriteLine("In upper case: " +fullName.ToUpper());
+
+            var splitterIndex = fullName.IndexOf(' ');
+            var firstName = fullName.Substring(0, splitterIndex);
+            var lastName = fullName.Substring(splitterIndex + 1);
+            Console.WriteLine("First Name: " +firstName);
+            Console.WriteLine("Last Name: " +lastName);
+
+            var names = fullName.Split(' ');
+            Console.WriteLine("First Name: " + names[0]);
+            Console.WriteLine("Last Name: " + names[1]);
+            var nameWithspace = "    Nazmul Hasan      ";
+            Console.WriteLine("Trimmed: '{0}'", nameWithspace.Trim());
+            Console.WriteLine("'a' replaced with 'x': " +fullName.Replace('a', 'x'));
+            Console.WriteLine("Replaced Substring: " +fullName.Replace("Nazmul", "UserName"));
+
+            if(String.IsNullOrWhiteSpace(Console.ReadLine()))
+            {
+                Console.WriteLine("Invalid input");
+            }
+            else
+            {
+                Console.WriteLine("Valid input");
+            }
+
+            // String summary
+            var longText = "This is a really long text to show. This is a really long text to show.";
+            Console.WriteLine("Summary: " +TextSummary(longText, 10));
+
+            // String Builder
+            var builder = new StringBuilder("Hello World");
+            builder.AppendLine();
+            builder.Append('-', 11);
+            Console.WriteLine(builder);
+            Console.WriteLine("Index of 'o': " +builder.ToString().IndexOf('o'));
+            builder.AppendLine();
+            builder.Insert(0, "Writing ");
+            Console.WriteLine(builder);
+            builder.Replace("Writing", "Test");
+            Console.WriteLine(builder);
+            builder.Remove(0, 5);
+            Console.WriteLine(builder);
+
+            // String Excercises
+            StringExcercises.Excercise01();
+            StringExcercises.Excercise02();
+            StringExcercises.Excercise03();
+            StringExcercises.Excercise04();
+            StringExcercises.Excercise05();
+            
+            // File Handling
+            FileExcercises.Excercise0102();
+        }
+        public static string TextSummary(string text, int maxSize = 20)
+        {
+            if (text.Length < maxSize)
+                return text;
+            else
+            {
+                var totalChars = 0;
+                var summary = new List<string>();
+                var words = text.Split(' ');
+                foreach(var word in words)
+                {
+                    summary.Add(word);
+                    totalChars += word.Length + 1;
+                    if (totalChars > 20)
+                        break;
+                }
+                return String.Join(" ", summary) + "....";
+            }
         }
     }
 }
