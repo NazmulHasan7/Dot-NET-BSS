@@ -34,5 +34,9 @@ namespace CSharpOOP
         {
             List<Order> orders = new List<Order>();
         }
+        public virtual void Show()
+        {
+            Console.WriteLine("Name: {0}\nEmail: {1}\nID: {2}", Name, email, Id);
+        }
     }
 }

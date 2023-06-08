@@ -1,6 +1,7 @@
 ﻿using System;
 using CSharpOOP.ClassIntroExcercises;
 using CSharpOOP.InheritanceExcercise;
+using CSharpOOP.PolymorphismExcercises;
 
 namespace CSharpOOP
 {
@@ -59,8 +60,9 @@ namespace CSharpOOP
             post.UpVote();
             Console.WriteLine(post.Vote);
 
-            var user = new Student("Student 1" ,12344, "user@example.com");
+            var user = new Student("Student 1" ,12344, "user@example.com", "01700021223");
             Console.WriteLine(user.email);
+            user.Show();
 
             var stack = new StackTest();
             stack.Push(1);
@@ -72,6 +74,18 @@ namespace CSharpOOP
             stack.Pop(out obj2);
             stack.Pop(out obj3);
             Console.WriteLine(obj1+ " " +obj2+ " " +obj3);
+
+            DBConnection sqlConnection = new SQLConnection("SQL credentials");
+            DBCommand sqlCommand = new DBCommand(sqlConnection, "SQL command");
+            sqlCommand.Execute();
+
+            DBConnection oraclelConnection = new OracleConnection("ORACLE credentials");
+            DBCommand oracleCommand = new DBCommand(oraclelConnection, "ORACLE command");
+            oracleCommand.Execute();
+
+            sqlConnection = oraclelConnection;
+            sqlCommand = new DBCommand(sqlConnection, "SQL command");
+            sqlCommand.Execute();
         }
 
         private static void OutTest(out int x, out int y)

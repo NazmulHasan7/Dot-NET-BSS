@@ -22,14 +22,20 @@ namespace CSharpOOP
                 return duration.Days / 365;
             }
         }
-        public Student(string name,  int id, string email)
+        public Student(string name,  int id, string email, string contact = null)
             :base(name, id, email)
         {
+            this.ContactNo = contact;
             Console.WriteLine("Student Constructor called");
         }
         public Student(DateTime birthdate)
         {
             this.Birthdate = birthdate;
+        }
+        public override void Show()
+        {
+            base.Show();
+            Console.WriteLine("Contact: " +ContactNo);
         }
     }
 }
