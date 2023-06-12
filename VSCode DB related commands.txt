@@ -1,0 +1,35 @@
+
+// Adding package
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+dotnet-restore
+Install - dotnet tool install --global dotnet-ef --prerelease
+
+// Connecting database
+1. Create a database in XAMPP phymyadmin
+2. In appsettings.json add
+   "ConnectionStrings": {
+		"DefaultConnection": "server=localhost;port=3306;database=your_database_name;user=root;
+		password=your_password;trustConnection=false;SslMode=VerifyFull;TrustServerCertificate=true;"
+	},
+	Example: 
+	ConnectionStrings": {
+		"DefaultConnection": "server=localhost;port=3306;database=Bulky;user=root;TrustedConnection=true;TrustServerCertificate=true;" 
+	}
+	
+3.	Install the MySQL Connector/NET: In Visual Studio Code 
+	dotnet add package MySql.Data
+	
+4. Create Folder named "Data"
+5. Add class "ApplicationDBContext:DbContext" in Data folder in vscode use ef-db-context
+6. Add  builder.Services.AddDbContext<ApplicationDBContext>(
+			options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+		); 
+		in Program.cs
+		
+		
+....................................................................
+1. Install MySQL dependency first - dotnet add package Pomelo.EntityFrameworkCore.Mysql
+2. 

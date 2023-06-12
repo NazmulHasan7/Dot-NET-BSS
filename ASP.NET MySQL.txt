@@ -1,0 +1,16 @@
+1. Create database
+2. Install MySQL dependency first 
+		dotnet add package Pomelo.EntityFrameworkCore.Mysql
+		
+3. dotnet add package Microsoft.EntityFrameworkCore
+4. dotnet add package Microsoft.EntityFrameworkCore.Design
+5. In Program.cs 
+	var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentException();
+	builder.Services.AddDbContextPool<ApplicationDbContext>(
+		options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+	);
+6. In appsettings.json 
+	"ConnectionStrings": {
+		"DefaultConnection" : "Server=localhost; port=3306; Database=bulky; user=root; password=; Persist security Info=true;"
+	}
+dotnet ef database update
