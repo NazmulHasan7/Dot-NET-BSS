@@ -1,6 +1,7 @@
 ﻿using System;
 using CSharpOOP.ClassIntroExcercises;
 using CSharpOOP.InheritanceExcercise;
+using CSharpOOP.InterfaceExcercise;
 using CSharpOOP.PolymorphismExcercises;
 
 namespace CSharpOOP
@@ -86,6 +87,16 @@ namespace CSharpOOP
             sqlConnection = oraclelConnection;
             sqlCommand = new DBCommand(sqlConnection, "SQL command");
             sqlCommand.Execute();
+
+            var workflow = new List<IActivity>
+            {
+                new Activity1(),
+                new Activity2(),
+                new Activity3()
+            };
+
+            var engine = new WorkflowEngine();
+            engine.Run(workflow);
         }
 
         private static void OutTest(out int x, out int y)
